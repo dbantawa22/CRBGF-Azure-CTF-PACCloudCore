@@ -1,0 +1,126 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subnetUDR_effect": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ]
+        },
+        "excludedSubnets_udr": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Excluded Subnets",
+                "description": "Array of subnet names that are excluded from this policy"
+            }
+        },
+        "subnetNSG_effect": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ]
+        },
+        "excludedSubnets_nsg": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Excluded Subnets",
+                "description": "Array of subnet names that are excluded from this policy"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "Enforce-network-traffic",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Network"
+                },
+                "displayName": "Enforce network traffic control",
+                "description": "This policy sets enforces network traffic control",
+                "parameters": {
+                    "subnetUDR_effect": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ]
+                    },
+                    "excludedSubnets_udr": {
+                        "type": "Array",
+                        "metadata": {
+                            "displayName": "Excluded Subnets",
+                            "description": "Array of subnet names that are excluded from this policy"
+                        }
+                    },
+                    "subnetNSG_effect": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ]
+                    },
+                    "excludedSubnets_nsg": {
+                        "type": "Array",
+                        "metadata": {
+                            "displayName": "Excluded Subnets",
+                            "description": "Array of subnet names that are excluded from this policy"
+                        }
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/MGMT_ROOT/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Udr",
+                        "policyDefinitionReferenceId": "Deny-Subnet-Without-Udr",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('subnetUDR_effect')]"
+                            },
+                            "excludedSubnets": {
+                                "value": "[[parameters('excludedSubnets_udr')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/MGMT_ROOT/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
+                        "policyDefinitionReferenceId": "Deny-Subnet-Without-Nsg",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('subnetNSG_effect')]"
+                            },
+                            "excludedSubnets": {
+                                "value": "[[parameters('excludedSubnets_nsg')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subnetUDR_effect": {
+            "value": "Audit"
+        },
+        "excludedSubnets_udr": {
+            "value": [
+                "AzureBastionSubnet"
+            ]
+        },
+        "subnetNSG_effect": {
+            "value": "Audit"
+        },
+        "excludedSubnets_nsg": {
+            "value": [
+                "GatewaySubnet",
+                "AzureFirewallSubnet",
+                "AzureFirewallManagementSubnet"
+            ]
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "listOfAllowedSKUs": {
+            "type": "Array",
+            "metadata": {
+                "description": "The list of size SKUs that can be specified for virtual machines.",
+                "displayName": "Allowed Size SKUs",
+                "strongType": "VMSKUs"
+            }
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "allowedVMs": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Allowed-VM-Sizes')]"
+        },
+        "policyAssignmentNames": {
+            "allowedVMs": "Allowed-VM-Sizes",
+            "description": "Allowed virtual machine size SKUs",
+            "displayName": "Allowed virtual machine size SKUs"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policyAssignmentNames').allowedVMs]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').allowedVMs]",
+                "parameters": {
+                "listOfAllowedSKUs": {
+                    "value": "[parameters('listOfAllowedSKUs')]"
+
+                }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ACRCmkEffect": {
+            "value": "Deny"
+        },
+        "AksCmkEffect": {
+            "value": "Deny"
+        },
+        "WorkspaceCMKEffect": {
+            "value": "Deny"
+        },
+        "CognitiveServicesCMKEffect": {
+            "value": "Deny"
+        },
+        "CosmosCMKEffect": {
+            "value": "deny"
+        },
+        "DataBoxCMKEffect": {
+            "value": "Deny"
+        },
+        "StreamAnalyticsCMKEffect": {
+            "value": "deny"
+        },
+        "SynapseWorkspaceCMKEffect": {
+            "value": "Deny"
+        },
+        "StorageCMKEffect": {
+            "value": "Disabled"
+        },
+        "MySQLCMKEffect": {
+            "value": "Disabled"
+        },
+        "PostgreSQLCMKEffect": {
+            "value": "Disabled"
+        },
+        "SqlServerTDECMKEffect": {
+            "value": "Disabled"
+        },
+        "HealthcareAPIsCMKEffect": {
+            "value": "disabled"
+        },
+        "AzureBatchCMKEffect": {
+            "value": "Disabled"
+        },
+        "EncryptedVMDisksEffect": {
+            "value": "Disabled"
+        }
+    }
+}

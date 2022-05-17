@@ -1,0 +1,258 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"ACRCmkEffect": {
+			"metadata": {
+				"displayName": "Container registries should be encrypted with a customer-managed key (CMK)",
+				"description": "Use customer-managed keys to manage the encryption at rest of the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at https://aka.ms/acr/CMK."
+			},
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			]
+		},
+		"AksCmkEffect": {
+			"metadata": {
+				"displayName": "Azure Kubernetes Service clusters both operating systems and data disks should be encrypted by customer-managed keys",
+				"description": "Encrypting OS and data disks using customer-managed keys provides more control and greater flexibility in key management. This is a common requirement in many regulatory and industry compliance standards."
+			},
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			]
+		},
+		"WorkspaceCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)",
+				"description": "Manage encryption at rest of your Azure Machine Learning workspace data with customer-managed keys (CMK). By default, customer data is encrypted with service-managed keys, but CMKs are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at https://aka.ms/azureml-workspaces-cmk."
+			}
+		},
+		"CognitiveServicesCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)",
+				"description": "Customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data stored in Cognitive Services to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at https://aka.ms/cosmosdb-cmk."
+			}
+		},
+		"CosmosCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"audit",
+				"deny",
+				"disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest",
+				"description": "Use customer-managed keys to manage the encryption at rest of your Azure Cosmos DB. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at https://aka.ms/cosmosdb-cmk."
+			}
+		},
+		"DataBoxCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Data Box jobs should use a customer-managed key to encrypt the device unlock password",
+				"description": "Use a customer-managed key to control the encryption of the device unlock password for Azure Data Box. Customer-managed keys also help manage access to the device unlock password by the Data Box service in order to prepare the device and copy data in an automated manner. The data on the device itself is already encrypted at rest with Advanced Encryption Standard 256-bit encryption, and the device unlock password is encrypted by default with a Microsoft managed key."
+			}
+		},
+		"StreamAnalyticsCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"audit",
+				"deny",
+				"disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Stream Analytics jobs should use customer-managed keys to encrypt data",
+				"description": "Use customer-managed keys when you want to securely store any metadata and private data assets of your Stream Analytics jobs in your storage account. This gives you total control over how your Stream Analytics data is encrypted."
+			}
+		},
+		"SynapseWorkspaceCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Synapse workspaces should use customer-managed keys to encrypt data at rest",
+				"description": "Use customer-managed keys to control the encryption at rest of the data stored in Azure Synapse workspaces. Customer-managed keys deliver double encryption by adding a second layer of encryption on top of the default encryption with service-managed keys."
+			}
+		},
+		"StorageCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Storage accounts should use customer-managed key (CMK) for encryption, no deny as this would result in not able to create storage account because the first need of MSI for encryption",
+				"description": "Secure your storage account with greater flexibility using customer-managed keys (CMKs). When you specify a CMK, that key is used to protect and control access to the key that encrypts your data. Using CMKs provides additional capabilities to control rotation of the key encryption key or cryptographically erase data."
+			}
+		},
+		"MySQLCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"AuditIfNotExists",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure MySQL servers bring your own key data protection should be enabled",
+				"description": "Use customer-managed keys to manage the encryption at rest of your MySQL servers. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management."
+			}
+		},
+		"PostgreSQLCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"AuditIfNotExists",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure PostgreSQL servers bring your own key data protection should be enabled",
+				"description": "Use customer-managed keys to manage the encryption at rest of your PostgreSQL servers. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management."
+			}
+		},
+		"SqlServerTDECMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"AuditIfNotExists",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "SQL servers should use customer-managed keys to encrypt data at rest",
+				"description": "Implementing Transparent Data Encryption (TDE) with your own key provides increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement."
+			}
+		},
+		"HealthcareAPIsCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"audit",
+				"disabled"
+			],
+			"metadata": {
+				"displayName": "Azure API for FHIR should use a customer-managed key (CMK) to encrypt data at rest",
+				"description": "Use a customer-managed key to control the encryption at rest of the data stored in Azure API for FHIR when this is a regulatory or compliance requirement. Customer-managed keys also deliver double encryption by adding a second layer of encryption on top of the default one done with service-managed keys."
+			}
+		},
+		"AzureBatchCMKEffect": {
+			"type": "String",
+			"allowedValues": [
+				"Audit",
+				"Deny",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Azure Batch account should use customer-managed keys to encrypt data",
+				"description": "Use customer-managed keys (CMKs) to manage the encryption at rest of your Batch account's data. By default, customer data is encrypted with service-managed keys, but CMKs are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at https://aka.ms/Batch-CMK."
+			}
+		},
+		"EncryptedVMDisksEffect": {
+			"type": "String",
+			"allowedValues": [
+				"AuditIfNotExists",
+				"Disabled"
+			],
+			"metadata": {
+				"displayName": "Disk encryption should be applied on virtual machines",
+				"description": "Virtual machines without an enabled disk encryption will be monitored by Azure Security Center as recommendations."
+			}
+		}
+	},
+	"variables": {
+		"policyDefinitions": {
+			"CMKEncryption": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/CMK_Encryption')]"
+		},
+		"policyAssignmentNames": {
+			"CMKEncryption": "CMK_Encryption",
+			"description": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
+			"displayName": "Deny or Audit resources without Encryption with a customer-managed key (CMK)"
+		}
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Authorization/policyAssignments",
+			"apiVersion": "2021-06-01",
+			"name": "[variables('policyAssignmentNames').CMKEncryption]",
+			"location": "[deployment().location]",
+			"identity": {
+				"type": "UserAssigned",
+				"userAssignedIdentities": {
+					"/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/deployment_test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uksouth-user-MI": {}
+				}
+			},
+			"properties": {
+				"description": "[variables('policyAssignmentNames').description]",
+				"displayName": "[variables('policyAssignmentNames').displayName]",
+				"policyDefinitionId": "[variables('policyDefinitions').CMKEncryption]",
+				"parameters": {
+					"ACRCmkEffect": {
+						"value": "[parameters('ACRCmkEffect')]"
+					},
+					"AksCmkEffect": {
+						"value": "[parameters('AksCmkEffect')]"
+					},
+					"WorkspaceCMKEffect": {
+						"value": "[parameters('WorkspaceCMKEffect')]"
+					},
+					"CognitiveServicesCMKEffect": {
+						"value": "[parameters('CognitiveServicesCMKEffect')]"
+					},
+					"CosmosCMKEffect": {
+						"value": "[parameters('CosmosCMKEffect')]"
+					},
+					"DataBoxCMKEffect": {
+						"value": "[parameters('DataBoxCMKEffect')]"
+					},
+					"StreamAnalyticsCMKEffect": {
+						"value": "[parameters('StreamAnalyticsCMKEffect')]"
+					},
+					"SynapseWorkspaceCMKEffect": {
+						"value": "[parameters('SynapseWorkspaceCMKEffect')]"
+					},
+					"StorageCMKEffect": {
+						"value": "[parameters('StorageCMKEffect')]"
+					},
+					"MySQLCMKEffect": {
+						"value": "[parameters('MySQLCMKEffect')]"
+					},
+					"PostgreSQLCMKEffect": {
+						"value": "[parameters('PostgreSQLCMKEffect')]"
+					},
+					"SqlServerTDECMKEffect": {
+						"value": "[parameters('SqlServerTDECMKEffect')]"
+					},
+					"HealthcareAPIsCMKEffect": {
+						"value": "[parameters('HealthcareAPIsCMKEffect')]"
+					},
+					"AzureBatchCMKEffect": {
+						"value": "[parameters('AzureBatchCMKEffect')]"
+					},
+					"EncryptedVMDisksEffect": {
+						"value": "[parameters('EncryptedVMDisksEffect')]"
+					}
+				}
+			}
+
+		}
+	],
+	"outputs": {}
+}

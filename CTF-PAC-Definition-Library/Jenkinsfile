@@ -1,0 +1,29 @@
+pipeline {
+  agent any
+
+  environment {
+    DIR = "/var/lib/jenkins/workspace/Newco-CTF-PAC-CloudCore-DEVELOPMENT/PAC_ARM_Template_Libarary_development"
+      }
+
+  stages {
+
+   stage('Az Authentication') {
+      steps {
+        sh 'az login --service-principal -u 39947df1-0378-4ae1-a93b-5910fd42a9cf -p NNM8Q~ql4vDNxE1il2h3Hzlj5bXDB_Fpz8EHjbAo -t 2eaefbef-4530-46a0-9c3a-1bae7a45d64d'
+
+      }
+    }
+    
+    stage('Deploy ARM') {
+      steps {
+        dir("${DIR}"){
+          script{
+            sh "pwd"
+            sh "chmod -R 777 /var/lib/jenkins/workspace/Newco-CTF-PAC-CloudCore-DEVELOPMENT"
+            sh "./run.sh"
+          }
+        }
+      }
+    }
+  }
+}

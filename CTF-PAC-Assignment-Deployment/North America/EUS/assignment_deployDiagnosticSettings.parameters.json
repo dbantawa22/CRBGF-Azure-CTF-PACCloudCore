@@ -1,0 +1,192 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logAnalytics": {
+            "value": "mgmt-log-eus1-01"
+        },
+        "profileName": {
+            "value": "chanduatluripolicy1"
+        },
+        "ACILogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "ACRLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "AKSLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "AnalysisServiceLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "APIforFHIRLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "APIMgmtLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "ApplicationGatewayLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "AutomationLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "BatchLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "CDNEndpointsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "CognitiveServicesLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "CosmosLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "DatabricksLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "DataExplorerClusterLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "DataFactoryLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "DataLakeStoreLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "DataLakeAnalyticsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "EventGridSubLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "EventGridTopicLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "EventHubLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "EventSystemTopicLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "ExpressRouteLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "FirewallLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "FrontDoorLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "FunctionAppLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "HDInsightLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "IotHubLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "KeyVaultLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "LoadBalancerLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "LogicAppsISELogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "LogicAppsWFLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "MariaDBLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "MediaServiceLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "MlWorkspaceLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "MySQLLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "NetworkSecurityGroupsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "PostgreSQLLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "PowerBIEmbeddedLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "NetworkPublicIPNicLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "RedisCacheLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "RelayLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SearchServicesLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "ServiceBusLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SignalRLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SQLDBsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SQLElasticPoolsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SQLMLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "StreamAnalyticsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "TimeSeriesInsightsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "TrafficManagerLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "VirtualNetworkLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "VirtualMachinesLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "VMSSLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "VNetGWLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "AppServiceLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "AppServiceWebappLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "WVDAppGroupsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "WVDWorkspaceLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "WVDHostPoolsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "StorageAccountsLogAnalyticsEffect": {
+            "value": "DeployIfNotExists"
+        }
+    }
+}

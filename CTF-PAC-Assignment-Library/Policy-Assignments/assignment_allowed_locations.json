@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+
+        "listOfAllowedLocations": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Allowed locations",
+                "strongType": "location",
+                "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region."
+            }
+
+        },
+        "listOfAllowedLocationsRG": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Allowed locations for resource groups",
+                "strongType": "location",
+                "description": "This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements."
+            }
+
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "allowedlocations": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT' , '/providers/Microsoft.Authorization/policysetDefinitions/Allowed-Locations')]"
+        },
+        "policyAssignmentNames": {
+            "allowedlocations": "Allowed-Locations",
+            "description": "This initiative enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region & enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.",
+            "displayName": "Allowed locations and Allowed Locations for Resource Groups"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policyAssignmentNames').allowedlocations]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').allowedlocations]",
+                "parameters": {
+                    "listOfAllowedLocations": {
+                        "value": "[parameters('listOfAllowedLocations')]"
+                    },
+                    "listOfAllowedLocationsRG": {
+                        "value": "[parameters('listOfAllowedLocationsRG')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

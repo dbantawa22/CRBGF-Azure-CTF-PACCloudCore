@@ -1,0 +1,95 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String",
+            "metadata": {
+                "displayName": "location",
+                "description": "Deployment location for Managed Identity",
+                "strongType": "location"
+            }
+        },
+        "ddosName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "ddosName",
+                "description": "DDoSVnet"
+            }
+        },
+        "ddosRegion": {
+            "type": "String",
+            "metadata": {
+                "displayName": "ddosRegion",
+                "description": "DDoSVnet location",
+                "strongType": "location"
+            }
+        },
+        "rgName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "rgName",
+                "description": "Provide name for resource group."
+            }
+        },
+        "effect": {
+            "type": "String",
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "DDOSProtect": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/DDOS-Protect')]"
+        },
+        "policyAssignmentNames": {
+            "DDOSProtect": "DDOS-Protect",
+            "description": "Protect against distributed denial of service attacks",
+            "displayName": "Protect against distributed denial of service attacks"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2021-06-01",
+            "name": "[variables('policyAssignmentNames').DDOSProtect]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/deployment_test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uksouth-user-MI": {}
+                }
+            },
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').DDOSProtect]",
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "ddosName": {
+                        "value": "[parameters('ddosName')]"
+                    },
+                    "ddosRegion": {
+                        "value": "[parameters('ddosRegion')]"
+                    },
+                    "rgName": {
+                        "value": "[parameters('rgName')]"
+                    },
+                    "effect": {
+                        "value": "[parameters('effect')]"
+                    }
+                }
+            }
+
+        }
+    ],
+    "outputs": {}
+}

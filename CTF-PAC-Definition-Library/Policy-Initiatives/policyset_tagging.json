@@ -1,0 +1,95 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Require_Tag_On_Resources_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        },
+        "Require_Tag_On_Resource_Groups_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        },
+        "Inherit_Tag_From_Resource_Groups_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "Require-tagging",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Tags"
+                },
+                "displayName": "Require a tag on resources and resource groups",
+                "description": "Require a tag on resources and resource groups",
+                "parameters": {
+                    "Require_Tag_On_Resources_tagName": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Tag Name",
+                            "description": "Name of the tag, such as 'environment'"
+                        }
+                    },
+                    "Require_Tag_On_Resource_Groups_tagName": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Tag Name",
+                            "description": "Name of the tag, such as 'environment'"
+                        }
+                    },
+                    "Inherit_Tag_From_Resource_Groups_tagName": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Tag Name",
+                            "description": "Name of the tag, such as 'environment'"
+                        }
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+                        "policyDefinitionReferenceId": "Require a tag on resources",
+                        "parameters": {
+                            "tagName": {
+                                "value": "[[parameters('Require_Tag_On_Resources_tagName')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+                        "policyDefinitionReferenceId": "Require a tag on resource groups",
+                        "parameters": {
+                            "tagName": {
+                                "value": "[[parameters('Require_Tag_On_Resource_Groups_tagName')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+                        "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing",
+                        "parameters": {
+                            "tagName": {
+                                "value": "[[parameters('Inherit_Tag_From_Resource_Groups_tagName')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

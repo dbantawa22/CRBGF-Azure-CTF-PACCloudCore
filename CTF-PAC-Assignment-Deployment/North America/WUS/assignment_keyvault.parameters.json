@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyvault_soft_delete_effect": {
+      "value": "Deny"
+    },
+    "keyvault_hsm_purge_protection_effect": {
+      "value": "Deny"
+    },
+    "keyvault_purge_protection_effect": {
+      "value": "Deny"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"keyvault_soft_delete_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			}
+		},
+		"keyvault_purge_protection_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			}
+		},
+		"keyvault_hsm_purge_protection_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			}
+		}
+	},
+	"resources": [
+		{
+			"scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+			"type": "Microsoft.Authorization/policySetDefinitions",
+			"apiVersion": "2019-09-01",
+			"name": "KeyVault-protect-secrets",
+			"properties": {
+				"metadata": {
+					"version": "2.0.0",
+					"category": "Key Vault"
+				},
+				"displayName": "Key vaults should have soft delete and purge protection enabled.",
+				"description": "Deleting a key vault without soft delete enabled permanently deletes all secrets, keys, and certificates stored in the key vault. Accidental deletion of a key vault can lead to permanent data loss. Soft delete allows you to recover an accidentally deleted key vault for a configurable retention period. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.",
+				"parameters": {
+					"keyvault_soft_delete_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						}
+					},
+					"keyvault_purge_protection_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						}
+					},
+					"keyvault_hsm_purge_protection_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						}
+					}
+
+				},
+				"policyDefinitions": [
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d",
+						"policyDefinitionReferenceId": "keyvault_soft_delete",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('keyvault_soft_delete_effect')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0b60c0b2-2dc2-4e1c-b5c9-abbed971de53",
+						"policyDefinitionReferenceId": "keyvault_purge_protection",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('keyvault_purge_protection_effect')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c39ba22d-4428-4149-b981-70acb31fc383",
+						"policyDefinitionReferenceId": "keyvault_hsm_purge_protection",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('keyvault_hsm_purge_protection_effect')]"
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

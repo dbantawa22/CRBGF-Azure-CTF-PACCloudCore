@@ -1,0 +1,80 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyvault_soft_delete_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Append",
+                "Deny",
+                "Disabled",
+                "Audit"
+            ]
+        },
+        "keyvault_purge_protection_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Append",
+                "Deny",
+                "Disabled",
+                "Audit"
+            ]
+        },
+        "keyvault_hsm_purge_protection_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Append",
+                "Deny",
+                "Disabled",
+                "Audit"
+            ]
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "ProtectKV": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/KeyVault-protect-secrets')]"
+        },
+        "policyAssignmentNames": {
+            "ProtectKV": "KeyVault-protect-secrets",
+            "description": "Deleting a key vault without soft delete enabled permanently deletes all secrets, keys, and certificates stored in the key vault. Accidental deletion of a key vault can lead to permanent data loss. Soft delete allows you to recover an accidentally deleted key vault for a configurable retention period. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.",
+            "displayName": "Key vaults should have soft delete and purge protection enabled."
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policyAssignmentNames').ProtectKV]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').ProtectKV]",
+                "parameters": {
+
+                    "keyvault_soft_delete_effect": {
+                        "value": "[parameters('keyvault_soft_delete_effect')]"
+                    },
+                      "keyvault_purge_protection_effect": {
+                        "value": "[parameters('keyvault_purge_protection_effect')]"
+                    },
+                      "keyvault_hsm_purge_protection_effect": {
+                        "value": "[parameters('keyvault_hsm_purge_protection_effect')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

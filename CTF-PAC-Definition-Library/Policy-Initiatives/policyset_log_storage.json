@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Audit",
+				"audit",
+				"deny",
+				"Deny",
+				"disabled",
+				"Disabled"
+
+			]
+		}
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Authorization/policySetDefinitions",
+			"apiVersion": "2020-09-01",
+			"name": "Log-Storage",
+			"scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+			"properties": {
+				"metadata": {
+					"version": "2.0.0",
+					"category": "Monitoring"
+				},
+				"displayName": "Enable log storage and queries",
+				"description": "Enable log storage and queries ",
+				"parameters": {
+					"effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Audit",
+							"audit",
+							"deny",
+							"Deny",
+							"disabled",
+							"Disabled"
+
+						]
+					}
+				},
+				"policyDefinitions": [
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fa298e57-9444-42ba-bf04-86e8470e32c7",
+						"policyDefinitionReferenceId": "Saved_Queries",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('effect')]"
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

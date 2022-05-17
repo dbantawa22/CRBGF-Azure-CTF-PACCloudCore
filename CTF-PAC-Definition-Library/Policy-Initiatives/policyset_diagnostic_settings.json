@@ -1,0 +1,575 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Deploy_SearchServices_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+
+        "Deploy_SearchServices_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_DataLakeAnalytics_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+
+        "Deploy_DataLakeAnalytics_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+
+        "Deploy_ServiceBus_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+
+        "Deploy_ServiceBus_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_AzureSQLDB_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_LogicApps_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_LogicApps_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_BatchAccount_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_BatchAccount_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_DataLakeStorage_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_DataLakeStorage_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_KV_EventHub_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_StreamAnalytics_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_StreamAnalytics_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_EventHub_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_EventHub_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        },
+        "Deploy_DiagnosticSettings_KV_HSM_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+
+            ]
+        },
+        "Deploy_DiagnosticSettings_KV_HSM_eventHubRuleId": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Event Hub Authorization Rule Id",
+                "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                "assignPermissions": true
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "Diagnostic-Settings",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Network"
+                },
+                "displayName": "Provision default configurations for Azure Monitor",
+                "description": "Provision default configurations for Azure Monitor",
+                "parameters": {
+                    "Deploy_SearchServices_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+                        ]
+                    },
+
+                    "Deploy_SearchServices_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_DataLakeAnalytics_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+
+                    "Deploy_DataLakeAnalytics_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+
+                    "Deploy_ServiceBus_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+
+                    "Deploy_ServiceBus_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_AzureSQLDB_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_LogicApps_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_LogicApps_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_BatchAccount_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_BatchAccount_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_DataLakeStorage_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_DataLakeStorage_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_KV_EventHub_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_StreamAnalytics_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_StreamAnalytics_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_EventHub_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_EventHub_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    },
+                    "Deploy_DiagnosticSettings_KV_HSM_effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+
+                        ]
+                    },
+                    "Deploy_DiagnosticSettings_KV_HSM_eventHubRuleId": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "Event Hub Authorization Rule Id",
+                            "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+                            "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+                            "assignPermissions": true
+                        }
+                    }
+
+
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3d5da587-71bd-41f5-ac95-dd3330c2d58d",
+                        "policyDefinitionReferenceId": "Deploy_SearchServices",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_SearchServices_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_SearchServices_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4daddf25-4823-43d4-88eb-2419eb6dcc08",
+                        "policyDefinitionReferenceId": "Deploy_DataLakeAnalytics",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_DataLakeAnalytics_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_DataLakeAnalytics_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6b51af03-9277-49a9-a3f8-1c69c9ff7403",
+                        "policyDefinitionReferenceId": "Deploy_ServiceBus",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_ServiceBus_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_ServiceBus_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9a7c7a7d-49e5-4213-bea8-6a502b6272e0",
+                        "policyDefinitionReferenceId": "Deploy_AzureSQLDB",
+                        "parameters": {
+
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_AzureSQLDB_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1dae6c7-13f3-48ea-a149-ff8442661f60",
+                        "policyDefinitionReferenceId": "Deploy_LogicApps",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_LogicApps_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_LogicApps_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/db51110f-0865-4a6e-b274-e2e07a5b2cd7",
+                        "policyDefinitionReferenceId": "Deploy_BatchAccount",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_BatchAccount_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_BatchAccount_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e8d096bc-85de-4c5f-8cfb-857bd1b9d62d",
+                        "policyDefinitionReferenceId": "Deploy_DataLakeStorage",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_DataLakeStorage_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_DataLakeStorage_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ed7c8c13-51e7-49d1-8a43-8490431a0da2",
+                        "policyDefinitionReferenceId": "Deploy_KV_EventHub",
+                        "parameters": {
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_KV_EventHub_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/edf3780c-3d70-40fe-b17e-ab72013dafca",
+                        "policyDefinitionReferenceId": "Deploy_StreamAnalytics",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_StreamAnalytics_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_StreamAnalytics_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ef7b61ef-b8e4-4c91-8e78-6946c6b0023f",
+                        "policyDefinitionReferenceId": "Deploy_EventHub",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_EventHub_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_EventHub_eventHubRuleId')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6d2c800-5230-4a40-bff3-8268b4987d42",
+                        "policyDefinitionReferenceId": "Deploy_DiagnosticSettings_KV_HSM",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('Deploy_DiagnosticSettings_KV_HSM_effect')]"
+                            },
+                            "eventHubRuleId": {
+                                "value": "[[parameters('Deploy_DiagnosticSettings_KV_HSM_eventHubRuleId')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
