@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Disabled"
+
+            ]
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "EnforceCollectionLogs": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Enforce-Collection-Logs')]"
+        },
+        "policyAssignmentNames": {
+            "EnforceCollectionLogs": "Enforce-Collection-Logs",
+            "description": "Enforce collecting network traffic logs",
+            "displayName": "Enforce collecting network traffic logs"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2021-06-01",
+            "name": "[variables('policyAssignmentNames').EnforceCollectionLogs]",
+            "location": "[deployment().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/deployment_test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uksouth-user-MI": {}
+                }
+            },
+                "properties": {
+                    "description": "[variables('policyAssignmentNames').description]",
+                    "displayName": "[variables('policyAssignmentNames').displayName]",
+                    "policyDefinitionId": "[variables('policyDefinitions').EnforceCollectionLogs]",
+                    "parameters": {
+
+                        "effect": {
+                            "value": "[parameters('effect')]"
+                        }
+                    }
+                }
+            }
+    ],
+    "outputs": {}
+}

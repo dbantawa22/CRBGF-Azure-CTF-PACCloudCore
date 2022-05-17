@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"listOfAllowedLocations": {
+			"type": "Array",
+			"metadata": {
+				"displayName": "Allowed locations",
+				"strongType": "location",
+				"description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region."
+			}
+		},
+		"listOfAllowedLocationsRG": {
+			"type": "Array",
+			"metadata": {
+				"displayName": "Allowed locations for resource groups",
+				"strongType": "location",
+				"description": "This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements."
+			}
+
+		}
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Authorization/policySetDefinitions",
+			"apiVersion": "2019-09-01",
+			"name": "Allowed-Locations",
+			"scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+			"properties": {
+				"metadata": {
+					"version": "1.0.0",
+					"category": "General"
+				},
+				"displayName": "Allowed locations and Allowed Locations for Resource Groups",
+				"description": "This initiative enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region & enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.",
+				"parameters": {
+					"listOfAllowedLocations": {
+						"type": "Array",
+						"metadata": {
+							"displayName": "Allowed locations",
+							"strongType": "location",
+							"description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region."
+						}
+
+
+					},
+					"listOfAllowedLocationsRG": {
+						"type": "Array",
+						"metadata": {
+							"displayName": "Allowed locations for resource groups",
+							"strongType": "location",
+							"description": "This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements."
+						}
+
+					}
+
+
+				},
+				"policyDefinitions": [
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+						"policyDefinitionReferenceId": "listOfAllowedLocations",
+						"parameters": {
+							"listOfAllowedLocations": {
+								"value": "[[parameters('listOfAllowedLocations')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+						"policyDefinitionReferenceId": "listOfAllowedLocationsRG",
+						"parameters": {
+							"listOfAllowedLocations": {
+								"value": "[[parameters('listOfAllowedLocationsRG')]"
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

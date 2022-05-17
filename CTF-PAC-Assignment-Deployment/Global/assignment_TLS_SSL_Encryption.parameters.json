@@ -1,0 +1,90 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "AppServiceHttpEffect": {
+            "value": "Disabled"
+        },
+        "AppServiceTlsVersionEffect": {
+            "value": "Disabled"
+        },
+        "AppServiceminTlsVersion": {
+            "value": "1.0"
+        },
+        "APIAppServiceLatestTlsEffect": {
+            "value": "AuditIfNotExists"
+        },
+        "APIAppServiceHttpsEffect": {
+            "value": "Audit"
+        },
+        "FunctionLatestTlsEffect": {
+            "value": "AuditIfNotExists"
+        },
+        "FunctionServiceHttpsEffect": {
+            "value": "Audit"
+        },
+        "WebAppServiceLatestTlsEffect": {
+            "value": "AuditIfNotExists"
+        },
+        "WebAppServiceHttpsEffect": {
+            "value": "Audit"
+        },
+        "AKSIngressHttpsOnlyEffect": {
+            "value": "deny"
+        },
+        "MySQLEnableSSLDeployEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "MySQLEnableSSLEffect": {
+            "value": "Audit"
+        },
+        "MySQLminimalTlsVersion": {
+            "value": "TLS1_2"
+        },
+        "PostgreSQLEnableSSLDeployEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "PostgreSQLEnableSSLEffect": {
+            "value": "Audit"
+        },
+        "PostgreSQLminimalTlsVersion": {
+            "value": "TLS1_2"
+        },
+        "RedisTLSDeployEffect": {
+            "value": "Append"
+        },
+        "RedisMinTlsVersion": {
+            "value": "1.2"
+        },
+        "RedisTLSEffect": {
+            "value": "Audit"
+        },
+        "SQLManagedInstanceTLSDeployEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SQLManagedInstanceMinTlsVersion": {
+            "value": "1.2"
+        },
+        "SQLManagedInstanceTLSEffect": {
+            "value": "Audit"
+        },
+        "SQLServerTLSDeployEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "SQLServerminTlsVersion": {
+            "value": "1.2"
+        },
+        "SQLServerTLSEffect": {
+            "value": "Audit"
+        },
+        "StorageDeployHttpsEnabledEffect": {
+            "value": "DeployIfNotExists"
+        },
+        "StorageMinimumTlsVersion": {
+            "value": "TLS1_2"
+        },
+        "StorageHttpsEnabledEffect": {
+            "value": "Audit"
+        }
+    }
+}

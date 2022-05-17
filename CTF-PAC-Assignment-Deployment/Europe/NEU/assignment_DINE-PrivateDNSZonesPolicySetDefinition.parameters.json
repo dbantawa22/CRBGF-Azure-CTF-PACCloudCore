@@ -1,0 +1,127 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "azureFilePrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureWebPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureBatchPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureAppPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureAsrPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureIotPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureKeyVaultPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureSignalRPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureAppServicesPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureEventGridTopicsPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureDiskAccessPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureCognitiveServicesPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+
+        "azureIotHubsPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureEventGridDomainsPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureRedisCachePrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureAcrPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureEventHubNamespacePrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureMachineLearningWorkspacePrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureServiceBusNamespacePrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "azureCognitiveSearchPrivateDnsZoneId": {
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+        },
+        "DINE-Private-DNS-Azure-File-Sync_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-Web_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-App_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Private-Endpoints_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-Site-Recovery_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-IoT_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-KeyVault_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-SignalR_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-AppServices_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-EventGridTopics_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-DiskAccess_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-CognitiveServices_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-IoTHubs_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-EventGridDomains_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-RedisCache_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-ACR_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-EventHubNamespace_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-MachineLearningWorkspace_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-ServiceBusNamespace_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "DINE-Private-DNS-Azure-CognitiveSearch_effect": {
+            "value": "DeployIfNotExists"
+        }
+    }
+}

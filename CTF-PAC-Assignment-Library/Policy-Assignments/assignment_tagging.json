@@ -1,0 +1,69 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Require_Tag_On_Resources_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        },
+        "Require_Tag_On_Resource_Groups_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        },
+        "Inherit_Tag_From_Resource_Groups_tagName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+            }
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "tagging": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Require-tagging')]"
+        },
+        "policyAssignmentNames": {
+            "tagging": "Require-tagging",
+            "description": "Require Tag for resources and resource groups",
+            "displayName": "Require Tag for resources and resource groups"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2021-06-01",
+            "name": "[variables('policyAssignmentNames').tagging]",
+            "location": "[deployment().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/deployment_test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uksouth-user-MI": {}
+                }
+            },
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').tagging]",
+                "parameters": {
+
+                    "Require_Tag_On_Resources_tagName": {
+                        "value": "[parameters('Require_Tag_On_Resources_tagName')]"
+                    },
+                    "Require_Tag_On_Resource_Groups_tagName": {
+                        "value": "[parameters('Require_Tag_On_Resource_Groups_tagName')]"
+                    },
+                    "Inherit_Tag_From_Resource_Groups_tagName": {
+                        "value": "[parameters('Inherit_Tag_From_Resource_Groups_tagName')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

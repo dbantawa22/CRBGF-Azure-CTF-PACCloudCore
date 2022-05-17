@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subnetUDR_effect": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ]
+        },
+        "excludedSubnets_udr": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Excluded Subnets",
+                "description": "Array of subnet names that are excluded from this policy"
+            }
+        },
+        "subnetNSG_effect": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ]
+        },
+        "excludedSubnets_nsg": {
+            "type": "Array",
+            "metadata": {
+                "displayName": "Excluded Subnets",
+                "description": "Array of subnet names that are excluded from this policy"
+            }
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "EnforceNetworkTraffic": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Enforce-network-traffic')]"
+        },
+        "policyAssignmentNames": {
+            "EnforceNetworkTraffic": "Enforce-network-traffic",
+            "description": "This policy sets enforces network traffic control.",
+            "displayName": "Enforce network traffic control"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2021-06-01",
+            "name": "[variables('policyAssignmentNames').EnforceNetworkTraffic]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').EnforceNetworkTraffic]",
+                "parameters": {
+                    "subnetUDR_effect": {
+                        "value": "[parameters('subnetUDR_effect')]"
+                    },
+                    "excludedSubnets_udr": {
+                        "value": "[parameters('excludedSubnets_udr')]"
+                    },
+                    "subnetNSG_effect": {
+                        "value": "[parameters('subnetNSG_effect')]"
+                    },
+                    "excludedSubnets_nsg": {
+                        "value": "[parameters('excludedSubnets_nsg')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

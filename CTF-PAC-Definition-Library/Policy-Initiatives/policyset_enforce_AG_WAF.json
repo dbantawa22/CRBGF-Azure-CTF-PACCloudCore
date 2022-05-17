@@ -1,0 +1,223 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Deny-AppGW-Without-WAF_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Deny",
+				"Disabled",
+				"Audit"
+			]
+		},
+		"Deny-AppGW-WAF_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Deny",
+				"Disabled",
+				"Audit"
+			]
+		},
+
+		"Deny-AppGW-WAF-FrontDoor_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Deny",
+				"Disabled",
+				"Audit"
+			]
+		},
+		"Azure-FrontDoor-Premium-WAF_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Deny",
+				"Disabled",
+				"Audit"
+			]
+		},
+		"modeRequirement": {
+			"type": "String",
+			"metadata": {
+				"displayName": "Mode Requirement",
+				"description": "Mode required for all WAF policies"
+			},
+			"allowedValues": [
+				"Prevention",
+				"Detection"
+			],
+			"defaultValue": "Detection"
+		},
+		"Enable-WAF-for-AppGW_effect": {
+			"type": "string",
+			"metadata": {
+				"displayName": "Effect",
+				"description": "Enable or disable the execution of the policy"
+			},
+			"allowedValues": [
+				"Deny",
+				"Disabled",
+				"Audit"
+			]
+		}
+	},
+	"resources": [
+		{
+			"scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+			"type": "Microsoft.Authorization/policySetDefinitions",
+			"apiVersion": "2019-09-01",
+			"name": "Enforce-Azure-AG",
+			"properties": {
+				"metadata": {
+					"version": "2.0.0",
+					"category": "Network"
+				},
+				"displayName": "Policy sets to enforce Azure Application Gateway Web Application Firewall",
+				"description": "Policy sets to enforce Azure Application Gateway Web Application Firewall",
+				"parameters": {
+					"Deny-AppGW-Without-WAF_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Deny",
+							"Disabled",
+							"Audit"
+						]
+					},
+					"Deny-AppGW-WAF_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Deny",
+							"Disabled",
+							"Audit"
+						]
+					},
+
+					"Deny-AppGW-WAF-FrontDoor_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Deny",
+							"Disabled",
+							"Audit"
+						]
+					},
+					"Azure-FrontDoor-Premium-WAF_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Deny",
+							"Disabled",
+							"Audit"
+						]
+					},
+					"modeRequirement": {
+						"type": "String",
+						"metadata": {
+							"displayName": "Mode Requirement",
+							"description": "Mode required for all WAF policies"
+						},
+						"allowedValues": [
+							"Prevention",
+							"Detection"
+						],
+						"defaultValue": "Detection"
+					},
+					"Enable-WAF-for-AppGW_effect": {
+						"type": "string",
+						"metadata": {
+							"displayName": "Effect",
+							"description": "Enable or disable the execution of the policy"
+						},
+						"allowedValues": [
+							"Deny",
+							"Disabled",
+							"Audit"
+						]
+					}
+				},
+
+				"policyDefinitions": [
+					{
+						"policyDefinitionId": "/providers/Microsoft.Management/managementGroups/MGMT_ROOT/providers/Microsoft.Authorization/policyDefinitions/Deny-AppGW-Without-WAF",
+						"policyDefinitionReferenceId": "Deny-AppGW-Without-WAF",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('Deny-AppGW-Without-WAF_effect')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/12430be1-6cc8-4527-a9a8-e3d38f250096",
+						"policyDefinitionReferenceId": "Deny-AppGW-WAF",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('Deny-AppGW-WAF_effect')]"
+							},
+							"modeRequirement": {
+								"value": "[[parameters('modeRequirement')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/425bea59-a659-4cbb-8d31-34499bd030b8",
+						"policyDefinitionReferenceId": "Deny-AppGW-WAF-FrontDoor",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('Deny-AppGW-WAF-FrontDoor_effect')]"
+							}
+						}
+					},
+
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/dfc212af-17ea-423a-9dcb-91e2cb2caa6b",
+						"policyDefinitionReferenceId": "Azure-FrontDoor-Premium-WAF",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('Azure-FrontDoor-Premium-WAF_effect')]"
+							}
+						}
+					},
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/564feb30-bf6a-4854-b4bb-0d2d2d1e6c66",
+						"policyDefinitionReferenceId": "Enable-WAF-for-AppGW",
+						"parameters": {
+							"effect": {
+								"value": "[[parameters('Enable-WAF-for-AppGW_effect')]"
+							}
+						}
+					}
+
+				]
+			}
+		}
+	]
+}

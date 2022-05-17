@@ -1,0 +1,129 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String",
+            "metadata": {
+                "displayName": "location",
+                "description": "Deployment location for Managed Identity",
+                "strongType": "location"
+            }
+        },
+        "ddosName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "ddosName",
+                "description": "DDoSVnet"
+            }
+        },
+        "ddosRegion": {
+            "type": "String",
+            "metadata": {
+                "displayName": "ddosRegion",
+                "description": "DDoSVnet location",
+                "strongType": "location"
+            }
+        },
+        "rgName": {
+            "type": "String",
+            "metadata": {
+                "displayName": "rgName",
+                "description": "Provide name for resource group."
+            }
+        },
+        "effect": {
+            "type": "String",
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "DDOS-Protect",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Network"
+                },
+                "displayName": "Protect against distributed denial of service attacks",
+                "description": "Protect against distributed denial of service attacks",
+                "parameters": {
+                    "location": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "location",
+                            "description": "Deployment location for Managed Identity",
+                            "strongType": "location"
+                        }
+                    },
+                    "ddosName": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "ddosName",
+                            "description": "DDoSVnet"
+                        }
+                    },
+                    "ddosRegion": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "ddosRegion",
+                            "description": "DDoSVnet location",
+                            "strongType": "location"
+                        }
+                    },
+                    "rgName": {
+                        "type": "String",
+                        "metadata": {
+                            "displayName": "rgName",
+                            "description": "Provide name for resource group."
+                        }
+                    },
+                    "effect": {
+                        "type": "String",
+                        "allowedValues": [
+                            "DeployIfNotExists",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/MGMT_ROOT/providers/Microsoft.Authorization/policyDefinitions/Deploy-DDoSProtection",
+                        "policyDefinitionReferenceId": "Deploy-DDoSProtection",
+                        "parameters": {
+                            "location": {
+                                "value": "[[parameters('location')]"
+                            },
+                            "ddosName": {
+                                "value": "[[parameters('ddosName')]"
+                            },
+                            "ddosRegion": {
+                                "value": "[[parameters('ddosRegion')]"
+                            },
+                            "rgName": {
+                                "value": "[[parameters('rgName')]"
+                            },
+                            "effect": {
+                                "value": "[[parameters('effect')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

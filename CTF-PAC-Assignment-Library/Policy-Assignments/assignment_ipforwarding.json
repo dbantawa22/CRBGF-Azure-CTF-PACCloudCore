@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      
+    },
+    "variables": {
+        "policyDefinitions": {
+            "IPForward": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/IP-forwarding')]"
+        },
+        "policyAssignmentNames": {
+            "IPForward": "IP-Forwarding",
+            "description": "Prevent IP forwarding on VMs",
+            "displayName": "Prevent IP forwarding on VMs"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policyAssignmentNames').IPForward]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').IPForward]"
+            }
+        }
+    ],
+    "outputs": {}
+}

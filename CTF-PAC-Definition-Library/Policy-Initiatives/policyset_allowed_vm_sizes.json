@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "listOfAllowedSKUs": {
+            "type": "Array",
+            "metadata": {
+                "description": "The list of size SKUs that can be specified for virtual machines.",
+                "displayName": "Allowed Size SKUs",
+                "strongType": "VMSKUs"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "Allowed-VM-Sizes",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Compute"
+                },
+                "displayName": "Allowed virtual machine size SKUs",
+                "description": "Allowed virtual machine size SKUs",
+                "parameters": {
+                    "listOfAllowedSKUs": {
+                        "type": "Array",
+                        "metadata": {
+                            "description": "The list of size SKUs that can be specified for virtual machines.",
+                            "displayName": "Allowed Size SKUs",
+                            "strongType": "VMSKUs"
+                        }
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+                        "policyDefinitionReferenceId": "Allowed_SKUs",
+                        "parameters": {
+                            "listOfAllowedSKUs": {
+                                "value": "[[parameters('listOfAllowedSKUs')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

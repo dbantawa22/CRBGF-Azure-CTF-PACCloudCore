@@ -1,0 +1,344 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "CosmosDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                    "KeyVaultDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                      "SqlServerDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                      "StorageDenyPaasPublicIP_effect1": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "AKSDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "ACRDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "AFSDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "PostgreSQLFlexDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "MySQLFlexDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "BatchDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "name": "Deny-PublicPaaSEndpoints",
+            "apiVersion": "2020-09-01",
+            "properties": {
+                "Description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
+                "DisplayName": "Public network access should be disabled for PaaS services",
+                "Parameters": {
+                    "CosmosDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                    "KeyVaultDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                      "SqlServerDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },
+                      "StorageDenyPaasPublicIP_effect1": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "AKSDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "ACRDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "AFSDenyPaasPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "PostgreSQLFlexDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "MySQLFlexDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    },  "BatchDenyPublicIP_effect": {
+                        "type": "string",
+                        "allowedValues": [
+                            "Audit",
+                            "Deny",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        }
+                    }
+
+                },
+                "PolicyDefinitions": [
+                    {
+                        "policyDefinitionReferenceId": "CosmosDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/797b37f7-06b8-444c-b1ad-fc62867f335a",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('CosmosDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "KeyVaultDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/55615ac9-af46-4a59-874e-391cc3dfb490",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('KeyVaultDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "SqlServerDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1b8ca024-1d5c-4dec-8995-b1a932b41780",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('SqlServerDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "StorageDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('StorageDenyPaasPublicIP_effect1')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "AKSDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/040732e8-d947-40b8-95d6-854c95024bf8",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('AKSDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "ACRDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0fdf0491-d080-4575-b627-ad0e843cba0f",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('ACRDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "AFSDenyPaasPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/21a8cd35-125e-4d13-b82d-2e19b7208bb7",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('AFSDenyPaasPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "PostgreSQLFlexDenyPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5e1de0e3-42cb-4ebc-a86d-61d0c619ca48",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('PostgreSQLFlexDenyPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "MySQLFlexDenyPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c9299215-ae47-4f50-9c54-8a392f68a052",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('MySQLFlexDenyPublicIP_effect')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionReferenceId": "BatchDenyPublicIP",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/74c5a0ae-5e48-4738-b093-65e23a060488",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('BatchDenyPublicIP_effect')]"
+                            }
+                        }
+                    }
+
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}

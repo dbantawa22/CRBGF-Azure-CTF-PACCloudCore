@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "Disabled"
+
+            ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "Enforce-Collection-Logs",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Network"
+                },
+                "displayName": "Enforce collecting network traffic logs",
+                "description": "Enforce collecting network traffic logs",
+                "parameters": {
+                    "effect": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Effect",
+                            "description": "Enable or disable the execution of the policy"
+                        },
+                        "allowedValues": [
+                            "Audit",
+                            "Disabled"
+                        ]
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a9b99dd8-06c5-4317-8629-9d86a3c6e7d9",
+                        "policyDefinitionReferenceId": "Deploy_Network_Watcher",
+                        "parameters": {}
+                    },
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2f080164-9f4d-497e-9db6-416dc9f7b48a",
+                        "policyDefinitionReferenceId": "TrafficAnalysis_Network_Watcher",
+                        "parameters": {
+                            "effect": {
+                                "value": "[[parameters('effect')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

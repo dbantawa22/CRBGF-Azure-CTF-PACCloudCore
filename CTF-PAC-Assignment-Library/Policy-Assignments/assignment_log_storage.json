@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "Audit",
+                "audit",
+                "deny",
+                "Deny",
+                "disabled",
+                "Disabled"
+
+            ]
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "LogStorage": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Log-Storage')]"
+        },
+        "policyAssignmentNames": {
+            "LogStorage": "Log-Storage",
+            "description": "Enable log storage and queries ",
+            "displayName": "Enable log storage and queries "
+
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policyAssignmentNames').LogStorage]",
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').LogStorage]",
+                "parameters": {
+
+                    "effect": {
+                        "value": "[parameters('effect')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

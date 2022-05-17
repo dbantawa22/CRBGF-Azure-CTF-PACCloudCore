@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Deploy_SearchServices_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_SearchServices_eventHubRuleId": {
+            "value": "/subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}"
+        },
+        "Deploy_DataLakeAnalytics_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_DataLakeAnalytics_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_ServiceBus_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_ServiceBus_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_AzureSQLDB_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_LogicApps_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_LogicApps_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_BatchAccount_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_BatchAccount_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_DataLakeStorage_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_DataLakeStorage_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_KV_EventHub_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_StreamAnalytics_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_StreamAnalytics_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_EventHub_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_EventHub_eventHubRuleId": {
+            "value": ""
+        },
+        "Deploy_DiagnosticSettings_KV_HSM_effect": {
+            "value": "DeployIfNotExists"
+        },
+        "Deploy_DiagnosticSettings_KV_HSM_eventHubRuleId": {
+            "value": ""
+        }
+    }
+}

@@ -1,0 +1,137 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vaultLocation": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Location (Specify the location of the VMs that you want to protect)",
+            "description": "Specify the location of the VMs that you want to protect. VMs should be backed up to a vault in the same location. For example - CanadaCentral",
+            "strongType": "location"
+          }
+        },
+        "inclusionTagName": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Inclusion Tag Name",
+            "description": "Name of the tag to use for including VMs in the scope of this policy. This should be used along with the Inclusion Tag Value parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy"
+          }
+        },
+        "inclusionTagValue": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Inclusion Tag Values",
+            "description": "Value of the tag to use for including VMs in the scope of this policy (in case of multiple values, use a comma-separated list). This should be used along with the Inclusion Tag Name parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+          }
+        },
+        "backupPolicyId": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Backup Policy (of type Azure VM from a vault in the location chosen above)",
+            "description": "Specify the ID of the Azure Backup policy to configure backup of the virtual machines. The selected Azure Backup policy should be of type Azure Virtual Machine. This policy needs to be in a vault that is present in the location chosen above. For example - /subscriptions/<SubscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RecoveryServices/vaults/<VaultName>/backupPolicies/<BackupPolicyName>",
+            "strongType": "Microsoft.RecoveryServices/vaults/backupPolicies"
+          }
+        },
+        "Configure_Backup_With_Tag_effect": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+          },
+          "allowedValues": [
+            "auditIfNotExists",
+            "AuditIfNotExists",
+            "deployIfNotExists",
+            "DeployIfNotExists",
+            "disabled",
+            "Disabled"
+          ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2020-09-01",
+            "name": "VM-Backup",
+            "scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+            "properties": {
+                "metadata": {
+                    "version": "2.0.0",
+                    "category": "Backup"
+                },
+                "displayName": "Back up virtual machines",
+                "description": "Back up virtual machines",
+                "parameters": {
+                    "vaultLocation": {
+                      "type": "String",
+                      "metadata": {
+                        "displayName": "Location (Specify the location of the VMs that you want to protect)",
+                        "description": "Specify the location of the VMs that you want to protect. VMs should be backed up to a vault in the same location. For example - CanadaCentral",
+                        "strongType": "location"
+                      }
+                    },
+                    "inclusionTagName": {
+                      "type": "String",
+                      "metadata": {
+                        "displayName": "Inclusion Tag Name",
+                        "description": "Name of the tag to use for including VMs in the scope of this policy. This should be used along with the Inclusion Tag Value parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy"
+                      }
+                    },
+                    "inclusionTagValue": {
+                      "type": "Array",
+                      "metadata": {
+                        "displayName": "Inclusion Tag Values",
+                        "description": "Value of the tag to use for including VMs in the scope of this policy (in case of multiple values, use a comma-separated list). This should be used along with the Inclusion Tag Name parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+                      }
+                    },
+                    "backupPolicyId": {
+                      "type": "String",
+                      "metadata": {
+                        "displayName": "Backup Policy (of type Azure VM from a vault in the location chosen above)",
+                        "description": "Specify the ID of the Azure Backup policy to configure backup of the virtual machines. The selected Azure Backup policy should be of type Azure Virtual Machine. This policy needs to be in a vault that is present in the location chosen above. For example - /subscriptions/<SubscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RecoveryServices/vaults/<VaultName>/backupPolicies/<BackupPolicyName>",
+                        "strongType": "Microsoft.RecoveryServices/vaults/backupPolicies"
+                      }
+                    },
+                    "Configure_Backup_With_Tag_effect": {
+                      "type": "String",
+                      "metadata": {
+                        "displayName": "Effect",
+                        "description": "Enable or disable the execution of the policy"
+                      },
+                      "allowedValues": [
+                        "auditIfNotExists",
+                        "AuditIfNotExists",
+                        "deployIfNotExists",
+                        "DeployIfNotExists",
+                        "disabled",
+                        "Disabled"
+                      ]
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/345fa903-145c-4fe1-8bcd-93ec2adccde8",
+                        "policyDefinitionReferenceId": "Configure_Backup_With_Tag",
+                        "parameters": {
+                            "vaultLocation": {
+                                "value": "[[parameters('vaultLocation')]"
+                            },
+                            "inclusionTagName": {
+                                "value": "[[parameters('inclusionTagName')]"
+                            },
+                            "inclusionTagValue": {
+                                "value": "[[parameters('inclusionTagValue')]"
+                            },
+                            "backupPolicyId": {
+                                "value": "[[parameters('backupPolicyId')]"
+                            },
+                            "effect": {
+                                "value": "[[parameters('Configure_Backup_With_Tag_effect')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,542 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "azureFilePrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureFilePrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureWebPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureWebPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureBatchPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureBatchPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureAppPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureAppPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureAsrPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureAsrPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureIotPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureIotPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureKeyVaultPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureKeyVaultPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureSignalRPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureSignalRPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureAppServicesPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureAppServicesPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureEventGridTopicsPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureEventGridTopicsPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureDiskAccessPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureDiskAccessPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureCognitiveServicesPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureCognitiveServicesPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureIotHubsPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureIotHubsPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureEventGridDomainsPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureEventGridDomainsPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureRedisCachePrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureRedisCachePrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureAcrPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureAcrPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureEventHubNamespacePrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureEventHubNamespacePrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureMachineLearningWorkspacePrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureMachineLearningWorkspacePrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureServiceBusNamespacePrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureServiceBusNamespacePrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "azureCognitiveSearchPrivateDnsZoneId": {
+            "type": "string",
+            "metadata": {
+                "displayName": "azureCognitiveSearchPrivateDnsZoneId",
+                "strongType": "Microsoft.Network/privateDnsZones",
+                "description": "Private DNS Zone Identifier"
+            }
+        },
+        "DINE-Private-DNS-Azure-File-Sync_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-Web_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-App_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Private-Endpoints_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-Site-Recovery_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-IoT_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-KeyVault_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+
+        "DINE-Private-DNS-Azure-SignalR_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-AppServices_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-EventGridTopics_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-DiskAccess_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-CognitiveServices_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-IoTHubs_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-EventGridDomains_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-RedisCache_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-ACR_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-EventHubNamespace_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-MachineLearningWorkspace_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-ServiceBusNamespace_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        },
+        "DINE-Private-DNS-Azure-CognitiveSearch_effect": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+            ]
+        }
+    },
+    "variables": {
+        "policyDefinitions": {
+            "DeployPrivateDNSZones": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT', '/providers/Microsoft.Authorization/policysetDefinitions/Deploy-Private-DNS-Zones')]"
+        },
+        "policyAssignmentNames": {
+            "DeployPrivateDNSZones": "Deploy-Private-DNS-Zones",
+            "displayName": "Configure Azure PaaS services to use private DNS zones",
+            "description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones"
+
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+              "apiVersion": "2021-06-01",
+            "name": "[variables('policyAssignmentNames').DeployPrivateDNSZones]",
+            "location": "[deployment().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/deployment_test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uksouth-user-MI": {}
+                }
+            },
+            "properties": {
+                "description": "[variables('policyAssignmentNames').description]",
+                "displayName": "[variables('policyAssignmentNames').displayName]",
+                "policyDefinitionId": "[variables('policyDefinitions').DeployPrivateDNSZones]",
+                "parameters": {
+                    "azureFilePrivateDnsZoneId": {
+                        "value": "[parameters('azureFilePrivateDnsZoneId')]"
+                    },
+                    "azureWebPrivateDnsZoneId": {
+                        "value": "[parameters('azureWebPrivateDnsZoneId')]"
+                    },
+                    "azureBatchPrivateDnsZoneId": {
+                        "value": "[parameters('azureBatchPrivateDnsZoneId')]"
+                    },
+                    "azureAppPrivateDnsZoneId": {
+                        "value": "[parameters('azureAppPrivateDnsZoneId')]"
+                    },
+                    "azureAsrPrivateDnsZoneId": {
+                        "value": "[parameters('azureAsrPrivateDnsZoneId')]"
+                    },
+                    "azureIotPrivateDnsZoneId": {
+                        "value": "[parameters('azureIotPrivateDnsZoneId')]"
+                    },
+                    "azureKeyVaultPrivateDnsZoneId": {
+                        "value": "[parameters('azureKeyVaultPrivateDnsZoneId')]"
+                    },
+                    "azureSignalRPrivateDnsZoneId": {
+                        "value": "[parameters('azureSignalRPrivateDnsZoneId')]"
+                    },
+                    "azureAppServicesPrivateDnsZoneId": {
+                        "value": "[parameters('azureAppServicesPrivateDnsZoneId')]"
+                    },
+                    "azureEventGridTopicsPrivateDnsZoneId": {
+                        "value": "[parameters('azureEventGridTopicsPrivateDnsZoneId')]"
+                    },
+                    "azureDiskAccessPrivateDnsZoneId": {
+                        "value": "[parameters('azureDiskAccessPrivateDnsZoneId')]"
+                    },
+                    "azureCognitiveServicesPrivateDnsZoneId": {
+                        "value": "[parameters('azureCognitiveServicesPrivateDnsZoneId')]"
+                    },
+
+                    "azureIotHubsPrivateDnsZoneId": {
+                        "value": "[parameters('azureIotHubsPrivateDnsZoneId')]"
+                    },
+                    "azureEventGridDomainsPrivateDnsZoneId": {
+                        "value": "[parameters('azureEventGridDomainsPrivateDnsZoneId')]"
+                    },
+                    "azureRedisCachePrivateDnsZoneId": {
+                        "value": "[parameters('azureRedisCachePrivateDnsZoneId')]"
+                    },
+                    "azureAcrPrivateDnsZoneId": {
+                        "value": "[parameters('azureAcrPrivateDnsZoneId')]"
+                    },
+                    "azureEventHubNamespacePrivateDnsZoneId": {
+                        "value": "[parameters('azureEventHubNamespacePrivateDnsZoneId')]"
+                    },
+                    "azureMachineLearningWorkspacePrivateDnsZoneId": {
+                        "value": "[parameters('azureMachineLearningWorkspacePrivateDnsZoneId')]"
+                    },
+                    "azureServiceBusNamespacePrivateDnsZoneId": {
+                        "value": "[parameters('azureServiceBusNamespacePrivateDnsZoneId')]"
+                    },
+                    "azureCognitiveSearchPrivateDnsZoneId": {
+                        "value": "[parameters('azureCognitiveSearchPrivateDnsZoneId')]"
+                    },
+                    "DINE-Private-DNS-Azure-File-Sync_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-File-Sync_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-Web_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-Web_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-App_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-App_effect')]"
+                    },
+                    "DINE-Private-DNS-Private-Endpoints_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Private-Endpoints_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-Site-Recovery_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-Site-Recovery_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-IoT_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-IoT_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-KeyVault_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-KeyVault_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-SignalR_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-SignalR_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-AppServices_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-AppServices_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-EventGridTopics_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-EventGridTopics_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-DiskAccess_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-DiskAccess_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-CognitiveServices_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-CognitiveServices_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-IoTHubs_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-IoTHubs_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-EventGridDomains_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-EventGridDomains_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-RedisCache_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-RedisCache_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-ACR_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-ACR_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-EventHubNamespace_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-EventHubNamespace_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-MachineLearningWorkspace_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-MachineLearningWorkspace_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-ServiceBusNamespace_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-ServiceBusNamespace_effect')]"
+                    },
+                    "DINE-Private-DNS-Azure-CognitiveSearch_effect": {
+                        "value": "[parameters('DINE-Private-DNS-Azure-CognitiveSearch_effect')]"
+                    }
+                
+            }}
+
+        }
+    ],
+    "outputs": {}
+}

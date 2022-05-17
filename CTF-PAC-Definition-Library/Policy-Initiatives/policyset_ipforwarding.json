@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {  
+        },
+	"resources": [
+		{
+			"type": "Microsoft.Authorization/policySetDefinitions",
+			"apiVersion": "2020-09-01",
+			"name": "IP-forwarding",
+        	"scope": "[concat('/providers/Microsoft.Management/managementGroups/', 'MGMT_ROOT')]",
+			"properties": {
+				"metadata": {
+					"version": "2.0.0",
+					"category": "Network"
+				},
+				"displayName": "Prevent IP forwarding on VMs",
+				"description": "Prevent IP forwarding on VMs",
+				"parameters": {},
+				"policyDefinitions": [
+					{
+						"policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/88c0b9da-ce96-4b03-9635-f29a937e2900",
+						"policyDefinitionReferenceId": "disable-IP-forwarding",
+						"parameters": {
+
+						}
+					}
+				]
+			}
+		}
+	]
+}
