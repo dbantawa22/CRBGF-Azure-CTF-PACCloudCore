@@ -3,119 +3,125 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "CosmosDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },
-                    "KeyVaultDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },
-                      "SqlServerDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },
-                      "StorageDenyPaasPublicIP_effect1": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "AKSDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "ACRDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "AFSDenyPaasPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "PostgreSQLFlexDenyPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "MySQLFlexDenyPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    },  "BatchDenyPublicIP_effect": {
-                        "type": "string",
-                        "allowedValues": [
-                            "Audit",
-                            "Deny",
-                            "Disabled"
-                        ],
-                        "metadata": {
-                            "displayName": "Effect",
-                            "description": "Enable or disable the execution of the policy"
-                        }
-                    }
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "KeyVaultDenyPaasPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "SqlServerDenyPaasPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "StorageDenyPaasPublicIP_effect1": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "AKSDenyPaasPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "ACRDenyPaasPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "AFSDenyPaasPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "PostgreSQLFlexDenyPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "MySQLFlexDenyPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        },
+        "BatchDenyPublicIP_effect": {
+            "type": "string",
+            "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+            ],
+            "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+            }
+        }
     },
     "variables": {},
     "resources": [
@@ -152,7 +158,7 @@
                             "description": "Enable or disable the execution of the policy"
                         }
                     },
-                      "SqlServerDenyPaasPublicIP_effect": {
+                    "SqlServerDenyPaasPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -164,7 +170,7 @@
                             "description": "Enable or disable the execution of the policy"
                         }
                     },
-                      "StorageDenyPaasPublicIP_effect1": {
+                    "StorageDenyPaasPublicIP_effect1": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -175,7 +181,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "AKSDenyPaasPublicIP_effect": {
+                    },
+                    "AKSDenyPaasPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -186,7 +193,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "ACRDenyPaasPublicIP_effect": {
+                    },
+                    "ACRDenyPaasPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -197,7 +205,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "AFSDenyPaasPublicIP_effect": {
+                    },
+                    "AFSDenyPaasPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -208,7 +217,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "PostgreSQLFlexDenyPublicIP_effect": {
+                    },
+                    "PostgreSQLFlexDenyPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -219,7 +229,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "MySQLFlexDenyPublicIP_effect": {
+                    },
+                    "MySQLFlexDenyPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -230,7 +241,8 @@
                             "displayName": "Effect",
                             "description": "Enable or disable the execution of the policy"
                         }
-                    },  "BatchDenyPublicIP_effect": {
+                    },
+                    "BatchDenyPublicIP_effect": {
                         "type": "string",
                         "allowedValues": [
                             "Audit",
@@ -242,7 +254,6 @@
                             "description": "Enable or disable the execution of the policy"
                         }
                     }
-
                 },
                 "PolicyDefinitions": [
                     {
@@ -335,7 +346,6 @@
                             }
                         }
                     }
-
                 ]
             }
         }

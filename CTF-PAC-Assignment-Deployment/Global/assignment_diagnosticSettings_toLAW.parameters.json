@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "logAnalytics": {
-            "value": "mgmt-log-eus1-01"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/DefaultResourceGroup-SUK/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-4ce27a75-a843-43b4-99ed-006804c35d7e-SUK"
         },
         "profileName": {
-            "value": "chanduatluripolicy1"
+            "value": "setByPolicy"
         },
         "ACILogAnalyticsEffect": {
             "value": "DeployIfNotExists"

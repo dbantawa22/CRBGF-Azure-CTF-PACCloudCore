@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "CosmosDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "KeyVaultDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "SqlServerDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "StorageDenyPaasPublicIP_effect1": {
+            "value": "Audit"
+        },
+        "AKSDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "ACRDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "AFSDenyPaasPublicIP_effect": {
+            "value": "Audit"
+        },
+        "PostgreSQLFlexDenyPublicIP_effect": {
+            "value": "Audit"
+        },
+        "MySQLFlexDenyPublicIP_effect": {
+            "value": "Audit"
+        },
+        "BatchDenyPublicIP_effect": {
+            "value": "Audit"
+        }
+    }
+}

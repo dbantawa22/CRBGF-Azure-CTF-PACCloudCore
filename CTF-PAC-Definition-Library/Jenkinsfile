@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DIR = "/var/lib/jenkins/workspace/Newco-CTF-PAC-CloudCore-DEVELOPMENT/PAC_ARM_Template_Libarary_development"
+    DIR = "/var/lib/jenkins/workspace/PIPELINENAME/CTF-PAC-Definition-Library"
       }
 
   stages {
@@ -19,7 +19,7 @@ pipeline {
         dir("${DIR}"){
           script{
             sh "pwd"
-            sh "chmod -R 777 /var/lib/jenkins/workspace/Newco-CTF-PAC-CloudCore-DEVELOPMENT"
+            sh "chmod -R 777 /var/lib/jenkins/workspace/PIPELINENAME"
             sh "./run.sh"
           }
         }
