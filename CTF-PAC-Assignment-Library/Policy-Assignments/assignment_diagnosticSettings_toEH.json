@@ -220,7 +220,7 @@
         "policyAssignmentNames": {
             "DiagnosticSettings": "Diagnostic-Settings",
             "description": "Provision default configurations for Azure Monitor",
-            "displayName": "Provision default configurations for Azure Monitor"
+            "displayName": "Deploy Diagnostic Settings to Event Hub"
         }
     },
     "resources": [

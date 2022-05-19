@@ -224,7 +224,7 @@
                     "version": "2.0.0",
                     "category": "Network"
                 },
-                "displayName": "Provision default configurations for Azure Monitor",
+                "displayName": "Deploy Diagnostic Settings to Event Hub",
                 "description": "Provision default configurations for Azure Monitor",
                 "parameters": {
                     "Deploy_SearchServices_effect": {

@@ -82,8 +82,8 @@
         },
         "policyAssignmentNames": {
             "EnforceAG": "Enforce-Azure-AG",
-            "description": "Policy sets to enforce Azure Application Gateway Web Application Firewall",
-            "displayName": "Policy sets to enforce Azure Application Gateway Web Application Firewall"
+            "description": "Policy set to enforce Azure Application Gateway Web Application Firewall",
+            "displayName": "Policy set to enforce Azure Application Gateway Web Application Firewall"
         }
     },
     "resources": [

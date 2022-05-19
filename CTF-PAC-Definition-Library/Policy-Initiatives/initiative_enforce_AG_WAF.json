@@ -87,8 +87,8 @@
 					"version": "2.0.0",
 					"category": "Network"
 				},
-				"displayName": "Policy sets to enforce Azure Application Gateway Web Application Firewall",
-				"description": "Policy sets to enforce Azure Application Gateway Web Application Firewall",
+				"displayName": "Policy set to enforce Azure Application Gateway Web Application Firewall",
+				"description": "Policy set to enforce Azure Application Gateway Web Application Firewall",
 				"parameters": {
 					"Deny-AppGW-Without-WAF_effect": {
 						"type": "string",

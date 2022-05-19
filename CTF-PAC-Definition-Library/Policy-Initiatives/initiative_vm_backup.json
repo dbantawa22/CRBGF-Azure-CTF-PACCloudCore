@@ -59,8 +59,8 @@
                     "version": "2.0.0",
                     "category": "Backup"
                 },
-                "displayName": "Back up virtual machines",
-                "description": "Back up virtual machines",
+                "displayName": "Back up virtual machines to a Recovery Vault",
+                "description": "Back up virtual machines to a Recovery Vault",
                 "parameters": {
                     "vaultLocation": {
                       "type": "String",

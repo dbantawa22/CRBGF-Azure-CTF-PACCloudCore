@@ -54,8 +54,8 @@
         },
         "policyAssignmentNames": {
             "VMBackup": "VM-Backup",
-            "description": "Back up virtual machines",
-            "displayName": "Back up virtual machines"
+            "description": "Back up virtual machines to a Recovery Vault",
+            "displayName": "Back up virtual machines to a Recovery Vault"
         }
     },
     "resources": [

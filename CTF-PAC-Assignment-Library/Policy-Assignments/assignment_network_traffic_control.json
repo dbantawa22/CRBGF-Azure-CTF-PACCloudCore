@@ -47,7 +47,7 @@
         },
         "policyAssignmentNames": {
             "EnforceNetworkTraffic": "Enforce-network-traffic",
-            "description": "This policy sets enforces network traffic control.",
+            "description": "This policy set enforces network traffic control.",
             "displayName": "Enforce network traffic control"
         }
     },

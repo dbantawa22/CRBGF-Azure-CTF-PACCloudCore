@@ -699,7 +699,7 @@
         "policyAssignmentNames": {
             "DeployDiagnosticsLogAnalytics": "Deploy-Diagnostics-to-LAW",
             "description": "This policy set deploys the configurations of application Azure resources to forward diagnostic logs and metrics to an Azure Log Analytics workspace. See the list of policies of the services that are included ",
-            "displayName": "Deploy Diagnostic Settings to Azure Services"
+            "displayName": "Deploy Diagnostic Settings to Log Analytics Workspace"
 
         }
     },
