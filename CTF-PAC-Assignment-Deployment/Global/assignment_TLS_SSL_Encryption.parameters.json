@@ -3,40 +3,40 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "AppServiceHttpEffect": {
-            "value": "Disabled"
+            "value": "Append"
         },
         "AppServiceTlsVersionEffect": {
-            "value": "Disabled"
+            "value": "Append"
         },
         "AppServiceminTlsVersion": {
-            "value": "1.0"
+            "value": "1.2"
         },
         "APIAppServiceLatestTlsEffect": {
             "value": "AuditIfNotExists"
         },
         "APIAppServiceHttpsEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "FunctionLatestTlsEffect": {
             "value": "AuditIfNotExists"
         },
         "FunctionServiceHttpsEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "WebAppServiceLatestTlsEffect": {
             "value": "AuditIfNotExists"
         },
         "WebAppServiceHttpsEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "AKSIngressHttpsOnlyEffect": {
-            "value": "deny"
+            "value": "Deny"
         },
         "MySQLEnableSSLDeployEffect": {
             "value": "DeployIfNotExists"
         },
         "MySQLEnableSSLEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "MySQLminimalTlsVersion": {
             "value": "TLS1_2"
@@ -45,7 +45,7 @@
             "value": "DeployIfNotExists"
         },
         "PostgreSQLEnableSSLEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "PostgreSQLminimalTlsVersion": {
             "value": "TLS1_2"
@@ -57,7 +57,7 @@
             "value": "1.2"
         },
         "RedisTLSEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "SQLManagedInstanceTLSDeployEffect": {
             "value": "DeployIfNotExists"
@@ -66,7 +66,7 @@
             "value": "1.2"
         },
         "SQLManagedInstanceTLSEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "SQLServerTLSDeployEffect": {
             "value": "DeployIfNotExists"
@@ -75,7 +75,7 @@
             "value": "1.2"
         },
         "SQLServerTLSEffect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "StorageDeployHttpsEnabledEffect": {
             "value": "DeployIfNotExists"
@@ -84,7 +84,7 @@
             "value": "TLS1_2"
         },
         "StorageHttpsEnabledEffect": {
-            "value": "Audit"
+            "value": "Deny"
         }
     }
 }

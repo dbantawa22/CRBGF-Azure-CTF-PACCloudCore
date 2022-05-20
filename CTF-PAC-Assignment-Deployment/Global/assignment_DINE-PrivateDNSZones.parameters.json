@@ -3,65 +3,64 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "azureFilePrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureWebPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureBatchPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureAppPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureAsrPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureIotPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureKeyVaultPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureSignalRPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureAppServicesPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureEventGridTopicsPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureDiskAccessPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureCognitiveServicesPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
-
         "azureIotHubsPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureEventGridDomainsPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureRedisCachePrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureAcrPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureEventHubNamespacePrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureMachineLearningWorkspacePrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureServiceBusNamespacePrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "azureCognitiveSearchPrivateDnsZoneId": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/chandutest.com"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_rg_uksouth/providers/Microsoft.Network/privateDnsZones/pvtdnspolicytest.com"
         },
         "DINE-Private-DNS-Azure-File-Sync_effect": {
             "value": "DeployIfNotExists"

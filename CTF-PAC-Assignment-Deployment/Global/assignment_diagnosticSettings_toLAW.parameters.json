@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "logAnalytics": {
-            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/DefaultResourceGroup-SUK/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-4ce27a75-a843-43b4-99ed-006804c35d7e-SUK"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.OperationalInsights/workspaces/lawpolicytest1"
         },
         "profileName": {
             "value": "setByPolicy"

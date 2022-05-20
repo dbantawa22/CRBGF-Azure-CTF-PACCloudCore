@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "subnetUDR_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "excludedSubnets_udr": {
             "value": [
@@ -11,7 +11,7 @@
             ]
         },
         "subnetNSG_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "excludedSubnets_nsg": {
             "value": [

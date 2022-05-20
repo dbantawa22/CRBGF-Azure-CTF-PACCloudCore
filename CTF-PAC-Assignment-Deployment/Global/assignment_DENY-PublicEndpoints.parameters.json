@@ -3,34 +3,34 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "CosmosDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "KeyVaultDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "SqlServerDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "StorageDenyPaasPublicIP_effect1": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "AKSDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "ACRDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "AFSDenyPaasPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "PostgreSQLFlexDenyPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "MySQLFlexDenyPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         },
         "BatchDenyPublicIP_effect": {
-            "value": "Audit"
+            "value": "Deny"
         }
     }
 }

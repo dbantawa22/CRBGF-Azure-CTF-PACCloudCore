@@ -6,61 +6,61 @@
             "value": "DeployIfNotExists"
         },
         "Deploy_SearchServices_eventHubRuleId": {
-            "value": "/subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}"
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_DataLakeAnalytics_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_DataLakeAnalytics_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_ServiceBus_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_ServiceBus_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_AzureSQLDB_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_LogicApps_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_LogicApps_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_BatchAccount_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_BatchAccount_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_DataLakeStorage_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_DataLakeStorage_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_KV_EventHub_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_StreamAnalytics_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_StreamAnalytics_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_EventHub_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_EventHub_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         },
         "Deploy_DiagnosticSettings_KV_HSM_effect": {
             "value": "DeployIfNotExists"
         },
         "Deploy_DiagnosticSettings_KV_HSM_eventHubRuleId": {
-            "value": ""
+            "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.EventHub/namespaces/ehpolicytest1/authorizationrules/RootManageSharedAccessKey"
         }
     }
 }

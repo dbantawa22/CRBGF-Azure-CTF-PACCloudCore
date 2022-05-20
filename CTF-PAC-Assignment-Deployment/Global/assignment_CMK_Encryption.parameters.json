@@ -15,37 +15,34 @@
             "value": "Deny"
         },
         "CosmosCMKEffect": {
-            "value": "deny"
+            "value": "Deny"
         },
         "DataBoxCMKEffect": {
             "value": "Deny"
         },
         "StreamAnalyticsCMKEffect": {
-            "value": "deny"
+            "value": "Deny"
         },
         "SynapseWorkspaceCMKEffect": {
             "value": "Deny"
         },
         "StorageCMKEffect": {
-            "value": "Disabled"
+            "value": "Audit"
         },
         "MySQLCMKEffect": {
-            "value": "Disabled"
+            "value": "AuditIfNotExists"
         },
         "PostgreSQLCMKEffect": {
-            "value": "Disabled"
-        },
-        "SqlServerTDECMKEffect": {
-            "value": "Disabled"
+            "value": "AuditIfNotExists"
         },
         "HealthcareAPIsCMKEffect": {
-            "value": "disabled"
+            "value": "audit"
         },
         "AzureBatchCMKEffect": {
-            "value": "Disabled"
+            "value": "Deny"
         },
         "EncryptedVMDisksEffect": {
-            "value": "Disabled"
+            "value": "AuditIfNotExists"
         }
     }
 }

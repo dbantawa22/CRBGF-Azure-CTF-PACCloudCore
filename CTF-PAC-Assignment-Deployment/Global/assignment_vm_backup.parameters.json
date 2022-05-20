@@ -6,12 +6,10 @@
             "value": "uksouth"
         },
         "inclusionTagName": {
-            "value": "OwnerID"
+            "value": "BU"
         },
         "inclusionTagValue": {
-            "value": [
-                "Raoul"
-            ]
+            "value": []
         },
         "backupPolicyId": {
             "value": "/subscriptions/4ce27a75-a843-43b4-99ed-006804c35d7e/resourceGroups/test_RG_UKSouth/providers/Microsoft.RecoveryServices/vaults/rec-vault-policy-test/backupPolicies/DefaultPolicy"

@@ -31,10 +31,9 @@
                 "displayName": "[variables('policyAssignmentNames').displayName]",
                 "policyDefinitionId": "[variables('policyDefinitions').allowedVMs]",
                 "parameters": {
-                "listOfAllowedSKUs": {
-                    "value": "[parameters('listOfAllowedSKUs')]"
-
-                }
+                    "listOfAllowedSKUs": {
+                        "value": "[parameters('listOfAllowedSKUs')]"
+                    }
                 }
             }
         }
